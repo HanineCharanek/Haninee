@@ -15,7 +15,7 @@ st.title('Welcome to my Application!:tada:')
 
 
 import pandas as pd
-population= pd.read_csv("C:/Users/student/Desktop/world_population.csv") 
+population= pd.read_csv("world_population.csv") 
 
 import plotly.express as px
 
