@@ -35,7 +35,7 @@ import plotly.graph_objects as go
 import plotly.offline as py
 
 
-import chart_studio.plotly as py
+
 
 st.header("Wold Population")
 st.subheader("The Dataset contains Population data of every Country/Territory in the world")
