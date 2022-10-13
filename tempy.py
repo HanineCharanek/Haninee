@@ -135,7 +135,10 @@ cont_gr = by_continent[['Growth_Rate']].sort_values(by = 'Growth_Rate',ascending
 cont_gr
 
 colors = ["#1d7874","#679289","#f4c095","#ee2e31","#ffb563","#918450","#f85e00","#a41623","#9a031e","#d6d6d6","#ffee32","#ffd100","#333533","#202020"]
+slider_growth = st.slider("Choose growth Range", max_value = 12, min_value = 50, value = [12, 50],
+                          step = 10)
 
+df2 = population.loc[(population["Salary"] >= slider_growth[0]) & (population["Salary"] <= slider_growth[1])]
 st.subheader("Population by Continent in 2022")
 data = go.Bar(x = cont_gr.index, y = cont_gr['Growth_Rate'], text = cont_gr['Growth_Rate'],textposition ='outside',
               textfont = dict(size = 12,
