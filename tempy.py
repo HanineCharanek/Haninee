@@ -137,10 +137,7 @@ cont_gr
 colors = ["#1d7874","#679289","#f4c095","#ee2e31","#ffb563","#918450","#f85e00","#a41623","#9a031e","#d6d6d6","#ffee32","#ffd100","#333533","#202020"]
 
 st.subheader("Population by Continent in 2022")
-slider_growth = st.slider("Choose growth Range", max_value = 12, min_value = 50, value = [12, 50],
-                          step = 10)
 
-df2 = population.loc[(population["Growth_Rate"] >= slider_growth[0]) & (population["Growth_Rate"] <= slider_growth[1])]
 data = go.Bar(x = cont_gr.index, y = cont_gr['Growth_Rate'], text = cont_gr['Growth_Rate'],textposition ='outside',
               textfont = dict(size = 12,
                              color = 'black'),
@@ -157,6 +154,11 @@ layout = go.Layout(title = {'text': "<b>Continents Wise Population Growth Rate</
                    width = 900,
                    height = 600,
                    template = 'plotly_white')
+
+slider_growth = st.slider("Choose growth Range", max_value = 12, min_value = 50, value = [12, 50],
+                          step = 10)
+
+df2 = population.loc[(population["Growth_Rate"] >= slider_growth[0]) & (population["Growth_Rate"] <= slider_growth[1])]
 
 fig5=go.Figure(data = data, layout = layout)
 st.plotly_chart(fig5)
